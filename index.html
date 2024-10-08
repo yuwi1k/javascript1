@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Случайные числа</title>
+</head>
+<body>
+    <table id="randomNumbersTable" border="1"></table>
+    <button id="addRandomNumber">Добавить случайное число</button>
+
+    <script>
+        const randomNumbers = Array.from({ length: 30 }, () => Math.floor(Math.random() * 100));
+
+        const table = document.getElementById('randomNumbersTable');
+        const button = document.getElementById('addRandomNumber');
+
+        function addRandomNumber() {
+            const randomIndex = Math.floor(Math.random() * randomNumbers.length);
+            const newRow = table.insertRow();
+            const newCell = newRow.insertCell(0);
+            newCell.textContent = randomNumbers[randomIndex];
+        }
+
+        button.addEventListener('click', addRandomNumber);
+    </script>
+</body>
+</html>
